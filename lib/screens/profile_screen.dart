@@ -3,10 +3,16 @@ import 'package:gap/gap.dart';
 import 'package:ticketbooking/utils/App_layout.dart';
 
 import '../utils/app_styles.dart';
+import 'Login/login_screen.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children:  [
               Gap(125),
               CircleAvatar(
                   backgroundImage: AssetImage('assets/images/p1.png'),
@@ -28,7 +34,16 @@ class ProfileScreen extends StatelessWidget {
               ),
               Gap(10),
               TextButton(
-                onPressed: null,
+                onPressed: () {
+                  Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return  LoginScreen();
+                          },
+                        ));
+                },
+                
                 // ignore: sort_child_properties_last
                 child:  Padding(
                   padding:  EdgeInsets.only(left:8.0,right:8.0),
